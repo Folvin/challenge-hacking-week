@@ -1,0 +1,215 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, button, input {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  font-size: 20px;
+  font-family: "Georgia", "serif";
+}
+@media screen and (max-width: 700px) {
+  html {
+    font-size: 14px;
+    letter-spacing: -0.2px;
+  }
+}
+@media screen and (min-width: 1600px) {
+  html {
+    font-size: 26px;
+  }
+}
+
+body {
+  background-color: rgb(171, 233, 212);
+}
+
+header {
+  height: 8vh;
+  background-image: url(assets/top-block-notes.webp);
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+}
+
+main {
+  background-image: url(assets/bottom-block-notes.webp);
+  background-repeat: repeat;
+  background-size: 40vmax auto;
+  padding: 0 8vw 50px;
+  box-sizing: border-box;
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main section.filter-and-sorting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-width: 210px;
+  padding: 2vh 0;
+}
+main section.filter-and-sorting div {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  padding: 5px 0;
+  width: 100%;
+  height: 5vh;
+}
+main section.filter-and-sorting div input {
+  min-width: 100px;
+  flex: 1 0 0;
+  box-sizing: border-box;
+  padding: 0 5px;
+  border: 1px solid black;
+  border-radius: 4px;
+  transition: 300ms;
+}
+main section.filter-and-sorting div input:hover {
+  background-color: rgb(211, 248, 203);
+}
+main section.filter-and-sorting div button {
+  min-width: 100px;
+  flex: 1 0 0;
+  border: 1px solid black;
+  border-radius: 4px;
+  transition: 200ms;
+}
+main section.filter-and-sorting div button:hover {
+  background-color: rgb(211, 248, 203);
+  cursor: pointer;
+}
+main section.filter-and-sorting div.sorting {
+  margin-top: 5px;
+  height: 9vh;
+}
+main section.filter-and-sorting div.sorting div {
+  min-width: 100px;
+  flex: 1 0 0;
+  flex-direction: column;
+  height: 100%;
+  padding: 0;
+}
+main section.filter-and-sorting div.sorting div:first-child {
+  margin-right: 6px;
+}
+main section.filter-and-sorting div.sorting div p {
+  height: 4vh;
+  margin-left: 5px;
+}
+main section.todo-list {
+  width: 100%;
+}
+main section.todo-list div.grid {
+  display: grid;
+  margin-top: 10px;
+  background-color: rgba(220, 220, 220, 0.692);
+}
+main section.todo-list div.grid div.key-legend2, main section.todo-list div.grid div.key-legend3 {
+  display: none;
+}
+@media screen and (min-width: 1400px) {
+  main section.todo-list div.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    gap: 20px 30px;
+  }
+  main section.todo-list div.grid div.key-legend2 {
+    display: flex;
+  }
+}
+@media screen and (min-width: 2500px) {
+  main section.todo-list div.grid {
+    grid-template-columns: repeat(3, 2fr);
+  }
+  main section.todo-list div.grid div.key-legend3 {
+    display: flex;
+  }
+}
+main section.todo-list div.grid div {
+  display: flex;
+  margin: 5px 0;
+}
+main section.todo-list div.grid div:nth-child(even) {
+  background-color: rgba(141, 141, 141, 0.349);
+}
+main section.todo-list div.grid div:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.349);
+}
+main section.todo-list div.grid div:first-child {
+  margin-top: 0;
+}
+main section.todo-list div.grid div:last-child {
+  margin-bottom: 0;
+}
+main section.todo-list div.grid div span:nth-child(1) {
+  flex: 8 0 0;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+main section.todo-list div.grid div span:nth-child(2) {
+  flex: 70 0 0;
+  padding: 5px 10px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+main section.todo-list div.grid div span:nth-child(3) {
+  flex: 22 0 0;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+}
+
+/*# sourceMappingURL=index.css.map */
