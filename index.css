@@ -60,12 +60,12 @@ html {
 }
 @media screen and (min-width: 1600px) {
   html {
-    font-size: 26px;
+    font-size: 28px;
   }
 }
 
 body {
-  background-color: rgb(171, 233, 212);
+  background-color: rgb(166, 219, 195);
 }
 
 header {
@@ -110,9 +110,10 @@ main section.filter-and-sorting div input {
   border: 1px solid black;
   border-radius: 4px;
   transition: 300ms;
+  background-color: rgba(124, 233, 147, 0.76);
 }
 main section.filter-and-sorting div input:hover {
-  background-color: rgb(211, 248, 203);
+  background-color: rgba(85, 255, 46, 0.801);
 }
 main section.filter-and-sorting div button {
   min-width: 100px;
@@ -120,9 +121,10 @@ main section.filter-and-sorting div button {
   border: 1px solid black;
   border-radius: 4px;
   transition: 200ms;
+  background-color: rgba(124, 233, 147, 0.76);
 }
 main section.filter-and-sorting div button:hover {
-  background-color: rgb(211, 248, 203);
+  background-color: rgba(85, 255, 46, 0.801);
   cursor: pointer;
 }
 main section.filter-and-sorting div.sorting {
@@ -149,16 +151,18 @@ main section.todo-list {
 main section.todo-list div.grid {
   display: grid;
   margin-top: 10px;
-  background-color: rgba(220, 220, 220, 0.692);
+  background-color: rgba(255, 255, 255, 0.808);
+  background-image: linear-gradient(to right, rgba(69, 223, 223, 0.514), rgba(61, 231, 89, 0.575));
 }
-main section.todo-list div.grid div.key-legend2, main section.todo-list div.grid div.key-legend3 {
+main section.todo-list div.grid div.key-legend2,
+main section.todo-list div.grid div.key-legend3 {
   display: none;
 }
 @media screen and (min-width: 1400px) {
   main section.todo-list div.grid {
     display: grid;
     grid-template-columns: repeat(2, 2fr);
-    gap: 20px 30px;
+    gap: 10px 20px;
   }
   main section.todo-list div.grid div.key-legend2 {
     display: flex;
@@ -174,19 +178,30 @@ main section.todo-list div.grid div.key-legend2, main section.todo-list div.grid
 }
 main section.todo-list div.grid div {
   display: flex;
-  margin: 5px 0;
+  margin-top: 10px;
 }
 main section.todo-list div.grid div:nth-child(even) {
-  background-color: rgba(141, 141, 141, 0.349);
+  background-color: rgba(51, 51, 51, 0.349);
 }
 main section.todo-list div.grid div:nth-child(odd) {
   background-color: rgba(255, 255, 255, 0.349);
 }
-main section.todo-list div.grid div:first-child {
-  margin-top: 0;
+@media screen and (min-width: 1400px) and (max-width: 2499px) {
+  main section.todo-list div.grid div:nth-child(4n+5) {
+    background-color: rgba(255, 255, 255, 0.349);
+  }
+  main section.todo-list div.grid div:nth-child(4n) {
+    background-color: rgba(51, 51, 51, 0.349);
+  }
+  main section.todo-list div.grid div:nth-child(4n+7) {
+    background-color: rgba(51, 51, 51, 0.349);
+  }
+  main section.todo-list div.grid div:nth-child(4n+6) {
+    background-color: rgba(255, 255, 255, 0.349);
+  }
 }
-main section.todo-list div.grid div:last-child {
-  margin-bottom: 0;
+main section.todo-list div.grid div.key-legend, main section.todo-list div.grid div.key-legend2, main section.todo-list div.grid div.key-legend3 {
+  margin-top: 0;
 }
 main section.todo-list div.grid div span:nth-child(1) {
   flex: 8 0 0;

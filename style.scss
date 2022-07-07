@@ -1,176 +1,192 @@
 @use "reset";
-$hover-green: rgb(211, 248, 203);
+$hover-green: rgba(85, 255, 46, 0.801);
+$background-color: rgba(124, 233, 147, 0.76);
+$background-gradient: to right, rgba(69, 223, 223, 0.514),
+  rgba(61, 231, 89, 0.575);
 
 html {
-    font-size: 20px;
-    font-family: "Georgia", "serif";
-    @media screen and (max-width: 700px) {
-        font-size: 14px;
-        letter-spacing: -0.2px;
-    }
-    @media screen and (min-width: 1600px) {
-        font-size: 26px;
-    }
+  font-size: 20px;
+  font-family: "Georgia", "serif";
+  @media screen and (max-width: 700px) {
+    font-size: 14px;
+    letter-spacing: -0.2px;
+  }
+  @media screen and (min-width: 1600px) {
+    font-size: 28px;
+  }
 }
 
 body {
-    background-color: rgb(171, 233, 212);
+  background-color: rgb(166, 219, 195);
 }
 
 header {
-    height: 8vh;
-    background-image: url(assets/top-block-notes.webp);
-    background-repeat: repeat-x;
-    background-size: auto 100%;
+  height: 8vh;
+  background-image: url(assets/top-block-notes.webp);
+  background-repeat: repeat-x;
+  background-size: auto 100%;
 }
 
 main {
-    background-image: url(assets/bottom-block-notes.webp);
-    background-repeat: repeat;
-    background-size: 40vmax auto;
-    padding: 0 8vw 50px;
-    box-sizing: border-box;
-    min-height: 92vh;
+  background-image: url(assets/bottom-block-notes.webp);
+  background-repeat: repeat;
+  background-size: 40vmax auto;
+  padding: 0 8vw 50px;
+  box-sizing: border-box;
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  section.filter-and-sorting {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    min-width: 210px;
+    padding: 2vh 0;
 
-    section.filter-and-sorting {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        min-width: 210px;
-        padding: 2vh 0;
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      padding: 5px 0;
+      width: 100%;
+      height: 5vh;
+
+      input {
+        min-width: 100px;
+        flex: 1 0 0;
+        box-sizing: border-box;
+        padding: 0 5px;
+        border: 1px solid black;
+        border-radius: 4px;
+        transition: 300ms;
+        background-color: $background-color;
+
+        &:hover {
+          background-color: $hover-green;
+        }
+      }
+
+      button {
+        min-width: 100px;
+        flex: 1 0 0;
+        border: 1px solid black;
+        border-radius: 4px;
+        transition: 200ms;
+        background-color: $background-color;
+
+        &:hover {
+          background-color: $hover-green;
+          cursor: pointer;
+        }
+      }
+
+      &.sorting {
+        margin-top: 5px;
+        height: 9vh;
 
         div {
-            display: flex;
-            justify-content: center;
-            align-items: stretch;
-            padding: 5px 0;
-            width: 100%;
-            height: 5vh;
+          min-width: 100px;
+          flex: 1 0 0;
+          flex-direction: column;
+          height: 100%;
+          padding: 0;
 
+          &:first-child {
+            margin-right: 6px;
+          }
 
-            input {
-                min-width: 100px;
-                flex: 1 0 0;
-                box-sizing: border-box;
-                padding: 0 5px;
-                border: 1px solid black;
-                border-radius: 4px;
-                transition: 300ms;
+          p {
+            height: 4vh;
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+  }
 
-                &:hover {
-                    background-color: $hover-green;
-                }
-            }
+  section.todo-list {
+    width: 100%;
 
-            button {
-                min-width: 100px;
-                flex: 1 0 0;
-                border: 1px solid black;
-                border-radius: 4px;
-                transition: 200ms;
+    div.grid {
+      display: grid;
+      margin-top: 10px;
+      background-color: rgba(255, 255, 255, 0.808);
+      background-image: linear-gradient($background-gradient);
 
-                &:hover {
-                    background-color: $hover-green;
-                    cursor: pointer;
-                }
-            }
-
-            &.sorting {
-                margin-top: 5px;
-                height: 9vh;
-
-                div {
-                    min-width: 100px;
-                    flex: 1 0 0;
-                    flex-direction: column;
-                    height: 100%;
-                    padding: 0;
-
-                    &:first-child {
-                        margin-right: 6px;
-                    }
-
-                    p {
-                        height: 4vh;
-                        margin-left: 5px;
-                    }
-                }
-            }
+      div.key-legend2,
+      div.key-legend3 {
+        display: none;
+      }
+      @media screen and (min-width: 1400px) {
+        display: grid;
+        grid-template-columns: repeat(2, 2fr);
+        gap: 10px 20px;
+        div.key-legend2 {
+          display: flex;
+        }
+      }
+      @media screen and (min-width: 2500px) {
+        grid-template-columns: repeat(3, 2fr);
+        div.key-legend3 {
+          display: flex;
+        }
+      }
+      div {
+        display: flex;
+        margin-top: 10px;
+        &:nth-child(even) {
+          background-color: rgba(51, 51, 51, 0.349);
+        }
+        &:nth-child(odd) {
+          background-color: rgba(255, 255, 255, 0.349);
+        }
+        @media screen and (min-width: 1400px) and (max-width: 2499px) {
+          &:nth-child(4n + 5) {
+            background-color: rgba(255, 255, 255, 0.349);
+          }
+          &:nth-child(4n) {
+            background-color: rgba(51, 51, 51, 0.349);
+          }
+          &:nth-child(4n + 7) {
+            background-color: rgba(51, 51, 51, 0.349);
+          }
+          &:nth-child(4n + 6) {
+            background-color: rgba(255, 255, 255, 0.349);
+          }
+        }
+        &.key-legend, &.key-legend2, &.key-legend3 {
+          margin-top: 0;
         }
 
-    }
-
-    section.todo-list {
-        width: 100%;
-
-        div.grid {
-            display: grid;
-            margin-top: 10px;
-            background-color: rgba(220, 220, 220, 0.692);
-
-            div.key-legend2, div.key-legend3 {
-                display: none;
-            }
-            @media screen and (min-width: 1400px) {
-                display: grid;
-                grid-template-columns: repeat(2, 2fr);
-                gap: 20px 30px;
-                div.key-legend2 {
-                    display: flex;
-                }
-            }
-            @media screen and (min-width: 2500px) {
-                grid-template-columns: repeat(3, 2fr);
-                div.key-legend3 {
-                    display: flex;
-                }
-            }
-            div {
-                display: flex;
-                margin: 5px 0;
-                &:nth-child(even) {
-                    background-color: rgba(141, 141, 141, 0.349);
-                }
-                &:nth-child(odd) {
-                    background-color: rgba(255, 255, 255, 0.349);
-                }
-                &:first-child {
-                    margin-top: 0;
-                }
-                &:last-child {
-                    margin-bottom: 0;
-                }
-                span:nth-child(1) {
-                    flex: 8 0 0;
-                    border: 1px solid black;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-around;
-                }
-
-                span:nth-child(2) {
-                    flex: 70 0 0;
-                    padding: 5px 10px;
-                    border: 1px solid black;
-                    display: flex;
-                    align-items: center;
-                    justify-content: flex-start;
-                }
-
-                span:nth-child(3) {
-                    flex: 22 0 0;
-                    border: 1px solid black;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-around;
-                    text-align: center;
-                }
-                
-            }
+        span:nth-child(1) {
+          flex: 8 0 0;
+          border: 1px solid black;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
         }
+
+        span:nth-child(2) {
+          flex: 70 0 0;
+          padding: 5px 10px;
+          border: 1px solid black;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+        }
+
+        span:nth-child(3) {
+          flex: 22 0 0;
+          border: 1px solid black;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          text-align: center;
+        }
+      }
     }
+  }
 }
